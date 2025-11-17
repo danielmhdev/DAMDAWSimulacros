@@ -56,7 +56,7 @@ export default function HomePage() {
             DAM/DAW <span className="text-blue-500">SIMULACROS</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Pon a prueba tus conocimientos con exámenes interactivos de todas las asignaturas
+            1er curso
           </p>
         </div>
 
@@ -116,7 +116,7 @@ export default function HomePage() {
         <div className="mt-12 text-center">
           <Card className="inline-block p-6 bg-card border-border">
             <p className="text-sm text-muted-foreground">
-              Más asignaturas y contenido se añadirán próximamente
+              2025
             </p>
           </Card>
         </div>
