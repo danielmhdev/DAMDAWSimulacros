@@ -16,7 +16,7 @@ const questions: Question[] = [
   {
     question: '¿Qué propiedad CSS establece espacio entre elementos?',
     options: ['padding', 'gap', 'margin-spacing', 'margin'],
-    correctAnswer: 1
+    correctAnswer: 3
   },
   {
     question: '¿Cómo defines un ancho máximo para un elemento en CSS?',
