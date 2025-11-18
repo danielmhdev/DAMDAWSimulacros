@@ -101,7 +101,7 @@ export default function HomePage() {
             DAM/DAW <span className="text-blue-500">SIMULACROS</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Pon a prueba tus conocimientos con exámenes interactivos de todas las asignaturas
+            Exámenes interactivos de todas las asignaturas | 1er curso
           </p>
         </div>
 
