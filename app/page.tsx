@@ -41,6 +41,10 @@ const subjects = [
       diciembreI: null,
       diciembreII: null,
     },
+    extraSimulacros: [
+      { label: "Kahoot UML", link: "/quiz/entornos-desarrollo/kahoot-uml" },
+      { label: "Kahoot IDE y Lenguajes", link: "/quiz/entornos-desarrollo/kahoot-ide" },
+    ],
   },
   {
     id: "bases-datos",
@@ -100,13 +104,16 @@ const subjects = [
     hoverBorder: "hover:border-yellow-500/50",
     simulacros: {
       junio: "/quiz/ipe-1/junio",
-      diciembreI: "/quiz/ipe-1/diciembre-1", // Activated Diciembre I test
+      diciembreI: "/quiz/ipe-1/diciembre-1",
       diciembreII: null,
     },
     customLabels: {
-      diciembreI: "Simulacro Diciembre I", // Changed label from "Test Unidades 1-5"
+      diciembreI: "Simulacro Diciembre I",
     },
-    extraSimulacros: [{ label: "Test Unidades 1-5", link: "/quiz/ipe-1/unidades-1-5" }],
+    extraSimulacros: [
+      { label: "Test Unidades 1-5", link: "/quiz/ipe-1/unidades-1-5" },
+      { label: "Test Unidades 6-10", link: "/quiz/ipe-1/unidades-6-10" },
+    ],
   },
 ]
 
