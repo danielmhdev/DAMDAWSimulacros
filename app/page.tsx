@@ -13,7 +13,7 @@ const subjects = [
     simulacros: {
       junio: "/quiz/lenguaje-marcas",
       diciembreI: "/quiz/lenguaje-marcas/diciembre-1",
-      diciembreII: null,
+      diciembreII: "/quiz/lenguaje-marcas/diciembre-2",
     },
   },
   {
