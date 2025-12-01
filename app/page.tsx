@@ -44,6 +44,7 @@ const subjects = [
     extraSimulacros: [
       { label: "Kahoot UML", link: "/quiz/entornos-desarrollo/kahoot-uml" },
       { label: "Kahoot IDE y Lenguajes", link: "/quiz/entornos-desarrollo/kahoot-ide" },
+      { label: "Kahoot GIT", link: "/quiz/entornos-desarrollo/kahoot-git" },
     ],
   },
   {
