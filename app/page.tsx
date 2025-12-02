@@ -129,7 +129,7 @@ export default function HomePage() {
       <div className="container mx-auto px-4 py-12 max-w-6xl">
         <div className="text-center mb-12 space-y-4">
           <h1 className="text-5xl font-bold text-foreground">
-            DAM/DAW <span className="text-blue-500">SIMULACROS</span>
+            ASIR <span className="text-orange-500">SIMULACROS</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Exámenes interactivos de todas las asignaturas | 1er curso
