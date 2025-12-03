@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { CheckCircle2, XCircle, ChevronLeft } from "lucide-react"
@@ -9,58 +9,58 @@ import Link from "next/link"
 const questions = [
   {
     question: "¿Qué tipo de relación ISA permite que un tipo pertenezca a varios subtipos?",
-    options: ["ISA Parcial", "ISA Total", "ISA Exclusiva", "ISA Solapada"],
-    correctAnswer: 3,
+    options: ["ISA Total", "ISA Exclusiva", "ISA Solapada", "ISA Parcial"],
+    correctAnswer: 2,
   },
   {
     question: "¿Qué comando DCL se utiliza para revocar permisos de un usuario en una base de datos?",
-    options: ["DENY", "REVOKE", "REMOVE", "DELETE"],
-    correctAnswer: 1,
+    options: ["REVOKE", "DELETE", "REMOVE", "DENY"],
+    correctAnswer: 0,
   },
   {
     question: "¿Qué comando DDL se utiliza para eliminar todos los datos de una tabla sin eliminar la tabla en sí?",
-    options: ["DELETE TABLE", "CLEAR TABLE", "TRUNCATE TABLE", "REMOVE TABLE"],
-    correctAnswer: 2,
+    options: ["DELETE TABLE", "TRUNCATE TABLE", "CLEAR TABLE", "REMOVE TABLE"],
+    correctAnswer: 1,
   },
   {
     question: "¿Qué efecto tiene un bloqueo exclusivo (exclusive lock) en una tabla?",
     options: [
-      "Permite solo lecturas simultáneas",
       "Impide que otros usuarios lean o escriban en la tabla",
-      "Permite solo escrituras simultáneas",
       "No tiene ningún efecto",
+      "Permite solo escrituras simultáneas",
+      "Permite solo lecturas simultáneas",
     ],
-    correctAnswer: 1,
+    correctAnswer: 0,
   },
   {
     question: "¿Qué estrategia de mapeo en herencia evita columnas vacías pero puede ser más lenta para consultas?",
     options: [
-      "Tabla Unica por Jerarquía completa",
+      "Tablas para cada subtipo",
       "Tablas directas del diagrama MER",
       "Tablas Orientadas a Objetos",
-      "Tablas para cada subtipo",
+      "Tabla Unica por Jerarquía completa",
     ],
-    correctAnswer: 3,
-  },
-  {
-    question: "¿Qué tipo de relación ISA permite que un tipo no pertenezca a ningún subgrupo?",
-    options: ["ISA Parcial", "ISA Total", "ISA Exclusiva", "ISA Solapada"],
-    correctAnswer: 0,
-  },
-  {
-    question: "¿Qué cláusula se utiliza para ordenar los resultados de una consulta SELECT?",
-    options: ["SORT BY", "ORDER BY", "GROUP BY", "FILTER BY"],
     correctAnswer: 1,
   },
   {
-    question: "¿Qué tipo de relación ISA establece que un tipo solo puede pertenecer a un subgrupo?",
-    options: ["ISA Parcial", "ISA Total", "ISA Exclusiva", "ISA Solapada"],
+    question: "¿Qué tipo de relación ISA permite que un tipo no pertenezca a ningún subgrupo?",
+    options: ["ISA Solapada", "ISA Exclusiva", "ISA Parcial", "ISA Total"],
     correctAnswer: 2,
   },
   {
-    question: "¿Qué comando DDL se utiliza para crear una nueva base de datos en SQL?",
-    options: ["CREATE DATABASE", "NEW DATABASE", "ADD DATABASE", "MAKE DATABASE"],
+    question: "¿Qué cláusula se utiliza para ordenar los resultados de una consulta SELECT?",
+    options: ["FILTER BY", "SORT BY", "ORDER BY", "GROUP BY"],
+    correctAnswer: 2,
+  },
+  {
+    question: "¿Qué tipo de relación ISA establece que un tipo solo puede pertenecer a un subgrupo?",
+    options: ["ISA Exclusiva", "ISA Parcial", "ISA Total", "ISA Solapada"],
     correctAnswer: 0,
+  },
+  {
+    question: "¿Qué comando DDL se utiliza para crear una nueva base de datos en SQL?",
+    options: ["MAKE DATABASE", "NEW DATABASE", "ADD DATABASE", "CREATE DATABASE"],
+    correctAnswer: 3,
   },
   {
     question:
@@ -70,114 +70,114 @@ const questions = [
   },
   {
     question: "¿Qué comando DQL se utiliza para seleccionar datos de una tabla?",
-    options: ["FETCH", "SELECT", "GET", "QUERY"],
-    correctAnswer: 1,
+    options: ["QUERY", "FETCH", "GET", "SELECT"],
+    correctAnswer: 3,
   },
   {
     question:
       "¿Qué tipo de restricción en MERE se utiliza para representar que una entidad solo podrá participar en una única relación de un conjunto, siempre?",
-    options: ["Exclusión", "Inclusión", "Exclusividad", "Inclusividad"],
-    correctAnswer: 2,
+    options: ["Inclusión", "Exclusividad", "Exclusión", "Inclusividad"],
+    correctAnswer: 1,
   },
   {
     question: "¿Qué comando se utiliza para crear una vista en una base de datos?",
-    options: ["CREATE VIEW", "MAKE VIEW", "NEW VIEW", "BUILD VIEW"],
-    correctAnswer: 0,
+    options: ["BUILD VIEW", "CREATE VIEW", "MAKE VIEW", "NEW VIEW"],
+    correctAnswer: 1,
   },
   {
     question: "¿Qué comando se utiliza para eliminar todos los registros de una tabla rápidamente?",
-    options: ["DELETE", "TRUNCATE", "DROP", "CLEAR"],
-    correctAnswer: 1,
+    options: ["DROP", "DELETE", "TRUNCATE", "CLEAR"],
+    correctAnswer: 2,
   },
   {
     question:
       "¿Qué tipo de restricción en MERE se utiliza para representar que para que una entidad participe en la relación R2, debe haber participado previamente en la relación R1?",
-    options: ["Exclusión", "Inclusión", "Exclusividad", "Inclusividad"],
-    correctAnswer: 1,
+    options: ["Exclusión", "Exclusividad", "Inclusividad", "Inclusión"],
+    correctAnswer: 2,
   },
   {
     question: "¿Qué comando se utiliza para mostrar la estructura de una tabla?",
-    options: ["SHOW STRUCTURE", "DESCRIBE", "DISPLAY STRUCTURE", "VIEW STRUCTURE"],
-    correctAnswer: 1,
+    options: ["DISPLAY STRUCTURE", "SHOW STRUCTURE", "DESCRIBE", "VIEW STRUCTURE"],
+    correctAnswer: 2,
   },
   {
     question: "¿Qué comando DDL se utiliza para eliminar una tabla completa de una base de datos?",
-    options: ["DELETE TABLE", "DROP TABLE", "REMOVE TABLE", "ERASE TABLE"],
-    correctAnswer: 1,
+    options: ["DROP TABLE", "ERASE TABLE", "REMOVE TABLE", "DELETE TABLE"],
+    correctAnswer: 0,
   },
   {
     question: "¿Qué tipo de restricción en MERE se representa con una flecha discontinua entre relaciones?",
-    options: ["Exclusión", "Inclusión", "Exclusividad", "Inclusividad"],
-    correctAnswer: 1,
+    options: ["Exclusividad", "Inclusividad", "Inclusión", "Exclusión"],
+    correctAnswer: 2,
   },
   {
-    question: "¿Qué comando se utiliza para eliminar un usuario de una base de datos?",
-    options: ["DELETE USER", "DROP USER", "REMOVE USER", "ERASE USER"],
+    question: "¿Qué comando DCL se utiliza para eliminar un usuario de una base de datos?",
+    options: ["REMOVE USER", "DROP USER", "DELETE USER", "ERASE USER"],
     correctAnswer: 1,
   },
   {
     question:
-      "¿Qué estrategia de mapeo en herencia crea una tabla para cada subtipo, incluida toda la información común?",
+      "¿Qué estrategia de mapeo en herencia crea una tabla para cada subtipoe, incluida toda la información común?",
     options: [
-      "Tabla Unica por Jerarquía completa",
       "Tablas directas del diagrama MER",
-      "Tablas Orientadas a Objetos",
       "Tablas para cada subtipo",
+      "Tablas Orientadas a Objetos",
+      "Tabla Unica por Jerarquía completa",
     ],
-    correctAnswer: 3,
+    correctAnswer: 2,
   },
   {
     question: "¿Cómo se delimitan las instrucciones dentro de un procedimiento almacenado en SQL?",
     options: [
       "Con paréntesis ()",
       "Mediante las palabras BEGIN y END",
-      "Solo con punto y coma ;",
       "No es necesario delimitarlas",
+      "Solo con punto y coma;",
     ],
     correctAnswer: 1,
   },
   {
     question: "¿Qué comando DDL se utiliza para mostrar todas las tablas en una base de datos?",
-    options: ["SHOW TABLES", "LIST TABLES", "DISPLAY TABLES", "VIEW TABLES"],
+    options: ["SHOW TABLES", "DISPLAY TABLES", "VIEW TABLES", "LIST TABLES"],
     correctAnswer: 0,
   },
   {
     question: "¿Qué tipo de restricción se utiliza para asegurar que un campo no puede tener valores nulos?",
-    options: ["PRIMARY KEY", "FOREIGN KEY", "NOT NULL", "UNIQUE"],
-    correctAnswer: 2,
-  },
-  {
-    question: "¿Qué tipo de relación en MERE se utiliza para representar relaciones circulares o reflexivas?",
-    options: ["ISA", "M:N", "1:N", "Recursiva"],
+    options: ["PRIMARY KEY", "FOREIGN KEY", "UNIQUE", "NOT NULL"],
     correctAnswer: 3,
   },
   {
+    question: "¿Qué tipo de relación en MERE se utiliza para representar relaciones circulares o reflexivas?",
+    options: ["ISA", "M:N", "Recursiva", "1:N"],
+    correctAnswer: 2,
+  },
+  {
     question: "¿Qué comando se utiliza para combinar verticalmente los resultados de dos consultas?",
-    options: ["JOIN", "UNION", "MERGE", "COMBINE"],
-    correctAnswer: 1,
+    options: ["UNION", "COMBINE", "JOIN", "MERGE"],
+    correctAnswer: 0,
   },
   {
     question: "¿Qué tipo de restricción en MERE se representa con una línea discontinua entre relaciones?",
-    options: ["Exclusión", "Inclusión", "Exclusividad", "Inclusividad"],
+    options: ["Exclusión", "Inclusión", "Inclusividad", "Exclusividad"],
     correctAnswer: 0,
   },
   {
     question: "¿Cuál es la principal diferencia entre una vista y una tabla base en SQL?",
     options: [
+      "No hay diferencia",
       "Una vista es una consulta guardada, una tabla base almacena datos físicamente",
       "Ambas almacenan datos",
-      "No hay diferencia",
       "Una vista no puede usarse en consultas",
     ],
-    correctAnswer: 0,
+    correctAnswer: 1,
   },
   {
     question: "¿Qué establece la restricción de Inclusión en MERE?",
     options: [
-      "Que una entidad debe participar en todas las relaciones posibles.",
-      "Que para que dos ocurrencias de entidades se asocien en R2, deben haber estado asociadas previamente a través de R1.",
-      "Que una entidad no puede participar en ninguna relación.",
       "Que una entidad puede participar en cualquier relación sin restricciones.",
+      "Que para que dos ocurrencias de entidades se asocien en R2, deben haber estado asociadas previamente a través de R1.",
+      "Que una entidad debe participar en todas las relaciones posibles.",
+      "Que una entidad no puede participar en ninguna relación.",
     ],
     correctAnswer: 1,
   },
@@ -195,25 +195,6 @@ export default function KahootBBDD0212Part2() {
   const [showResult, setShowResult] = useState(false)
   const [score, setScore] = useState(0)
   const [incorrectCount, setIncorrectCount] = useState(0)
-  const [shuffledQuestions, setShuffledQuestions] = useState(questions)
-
-  useEffect(() => {
-    const shuffled = [...questions]
-      .map((q) => ({
-        ...q,
-        options: q.options
-          .map((option, index) => ({ option, index }))
-          .sort(() => Math.random() - 0.5)
-          .map((item, newIndex) => {
-            if (item.index === q.correctAnswer) {
-              q.correctAnswer = newIndex
-            }
-            return item.option
-          }),
-      }))
-      .sort(() => Math.random() - 0.5)
-    setShuffledQuestions(shuffled)
-  }, [])
 
   const handleAnswer = (answerIndex: number) => {
     if (answeredQuestions[currentQuestion]) return
@@ -224,7 +205,7 @@ export default function KahootBBDD0212Part2() {
     newAnswered[currentQuestion] = true
     setAnsweredQuestions(newAnswered)
 
-    if (answerIndex === shuffledQuestions[currentQuestion].correctAnswer) {
+    if (answerIndex === questions[currentQuestion].correctAnswer) {
       setScore(score + 1)
     } else {
       setIncorrectCount(incorrectCount + 1)
@@ -239,7 +220,7 @@ export default function KahootBBDD0212Part2() {
   }
 
   const nextQuestion = () => {
-    if (currentQuestion < shuffledQuestions.length - 1) {
+    if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1)
       setSelectedAnswer(null)
     } else {
@@ -248,21 +229,6 @@ export default function KahootBBDD0212Part2() {
   }
 
   const resetQuiz = () => {
-    const shuffled = [...questions]
-      .map((q) => ({
-        ...q,
-        options: q.options
-          .map((option, index) => ({ option, index }))
-          .sort(() => Math.random() - 0.5)
-          .map((item, newIndex) => {
-            if (item.index === q.correctAnswer) {
-              q.correctAnswer = newIndex
-            }
-            return item.option
-          }),
-      }))
-      .sort(() => Math.random() - 0.5)
-    setShuffledQuestions(shuffled)
     setCurrentQuestion(0)
     setSelectedAnswer(null)
     setShowResult(false)
@@ -313,7 +279,7 @@ export default function KahootBBDD0212Part2() {
     )
   }
 
-  const question = shuffledQuestions[currentQuestion]
+  const question = questions[currentQuestion]
   const isAnswered = answeredQuestions[currentQuestion]
 
   return (

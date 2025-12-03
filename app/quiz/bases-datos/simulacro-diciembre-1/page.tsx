@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { CheckCircle2, XCircle, ChevronLeft } from "lucide-react"
@@ -294,24 +294,6 @@ export default function SimulacroDiciembreIBBDD() {
   const [showResult, setShowResult] = useState(false)
   const [score, setScore] = useState(0)
   const [incorrectCount, setIncorrectCount] = useState(0)
-  const [shuffledQuestions, setShuffledQuestions] = useState(questions)
-
-  useEffect(() => {
-    const shuffled = [...questions]
-      .map((q) => {
-        const optionsWithIndex = q.options.map((option, index) => ({ option, originalIndex: index }))
-        const shuffledOptions = optionsWithIndex.sort(() => Math.random() - 0.5)
-        const newCorrectAnswer = shuffledOptions.findIndex((item) => item.originalIndex === q.correctAnswer)
-
-        return {
-          ...q,
-          options: shuffledOptions.map((item) => item.option),
-          correctAnswer: newCorrectAnswer,
-        }
-      })
-      .sort(() => Math.random() - 0.5)
-    setShuffledQuestions(shuffled)
-  }, [])
 
   const handleAnswer = (answerIndex: number) => {
     if (answeredQuestions[currentQuestion]) return
@@ -326,7 +308,7 @@ export default function SimulacroDiciembreIBBDD() {
     newUserAnswers[currentQuestion] = answerIndex
     setUserAnswers(newUserAnswers)
 
-    if (answerIndex === shuffledQuestions[currentQuestion].correctAnswer) {
+    if (answerIndex === questions[currentQuestion].correctAnswer) {
       setScore(score + 1)
     } else {
       setIncorrectCount(incorrectCount + 1)
@@ -341,7 +323,7 @@ export default function SimulacroDiciembreIBBDD() {
   }
 
   const nextQuestion = () => {
-    if (currentQuestion < shuffledQuestions.length - 1) {
+    if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1)
       setSelectedAnswer(userAnswers[currentQuestion + 1])
     } else {
@@ -350,20 +332,6 @@ export default function SimulacroDiciembreIBBDD() {
   }
 
   const resetQuiz = () => {
-    const shuffled = [...questions]
-      .map((q) => {
-        const optionsWithIndex = q.options.map((option, index) => ({ option, originalIndex: index }))
-        const shuffledOptions = optionsWithIndex.sort(() => Math.random() - 0.5)
-        const newCorrectAnswer = shuffledOptions.findIndex((item) => item.originalIndex === q.correctAnswer)
-
-        return {
-          ...q,
-          options: shuffledOptions.map((item) => item.option),
-          correctAnswer: newCorrectAnswer,
-        }
-      })
-      .sort(() => Math.random() - 0.5)
-    setShuffledQuestions(shuffled)
     setCurrentQuestion(0)
     setSelectedAnswer(null)
     setShowResult(false)
@@ -415,7 +383,7 @@ export default function SimulacroDiciembreIBBDD() {
     )
   }
 
-  const question = shuffledQuestions[currentQuestion]
+  const question = questions[currentQuestion]
   const isAnswered = answeredQuestions[currentQuestion]
 
   return (
@@ -498,9 +466,7 @@ export default function SimulacroDiciembreIBBDD() {
         <div className="w-full bg-muted rounded-full h-2 mt-4">
           <div
             className="bg-blue-600 h-2 rounded-full transition-all duration-300"
-            style={{
-              width: `${((currentQuestion + 1) / questions.length) * 100}%`,
-            }}
+            style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
           />
         </div>
       </div>
