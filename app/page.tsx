@@ -15,7 +15,12 @@ const subjects = [
       diciembreI: "/quiz/lenguaje-marcas/diciembre-1",
       diciembreII: "/quiz/lenguaje-marcas/diciembre-2",
     },
-    extraSimulacros: [{ label: "Kahoot XPATH", link: "/quiz/lenguaje-marcas/kahoot-xpath" }],
+    extraSimulacros: [
+      { label: "Kahoot XPATH", link: "/quiz/lenguaje-marcas/kahoot-xpath" },
+      { label: "simulacro HTML", link: "/quiz/lenguaje-marcas/simulacro_HTML" },
+      { label: "simulacro CSS", link: "/quiz/lenguaje-marcas/simulacro_CSS" },
+      { label: "simulacro XPATH", link: "/quiz/lenguaje-marcas/simulacro_XPATH" },
+    ],
   },
   {
     id: "programacion",
@@ -105,7 +110,7 @@ const subjects = [
       diciembreI: "/quiz/sistemas-informaticos/diciembre-1", // Enabled link to Simulacro Diciembre I
       diciembreII: null,
     },
-    specialLabel: "Proyecto II",
+    // specialLabel: "Proyecto II",
     extraSimulacros: [{ label: "Kahoot Linux", link: "/quiz/sistemas-informaticos/kahoot-linux" }],
   },
   {
