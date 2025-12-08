@@ -90,7 +90,7 @@ const questions: Question[] = [
   {
     question: "En una excedencia voluntaria, ¿cuál es la duración mínima que puede solicitar el trabajador?",
     options: ["Un mes.", "Dos meses.", "Cuatro meses.", "Un año"],
-    correctAnswer: 3,
+    correctAnswer: 2,
   },
   {
     question: "En el despido objetivo, ¿qué indemnización corresponde al trabajador?",
