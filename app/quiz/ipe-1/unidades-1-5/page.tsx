@@ -276,8 +276,8 @@ const questions: Question[] = [
   {
     id: 30,
     text: "¿Qué ley establece la normativa básica de prevención de riesgos laborales en España?",
-    options: ["Ley 21/1995.", "Ley 31/1.", "Ley 19/1995.", "Ley 45/1995."],
-    correctAnswer: 3,
+    options: ["Ley 21/1995.", "Ley 31/1995", "Ley 19/1995.", "Ley 45/1995."],
+    correctAnswer: 1,
   },
   {
     id: 31,
